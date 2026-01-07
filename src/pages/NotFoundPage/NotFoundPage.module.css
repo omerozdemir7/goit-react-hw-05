@@ -1,0 +1,14 @@
+.container {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff6b6b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
