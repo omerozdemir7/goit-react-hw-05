@@ -7,15 +7,17 @@ export default function MovieReviews() {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
+    if (!movieId) return;
     async function fetchReviews() {
       try {
         setLoading(true);
         const data = await getMovieReviews(movieId);
         setReviews(data);
-      } catch (e) {
-        console.error(e);
+      } catch (error) {
+        setError(true);
       } finally {
         setLoading(false);
       }
@@ -24,13 +26,14 @@ export default function MovieReviews() {
   }, [movieId]);
 
   if (loading) return <p>Loading reviews...</p>;
-  if (reviews.length === 0) return <p>We don't have any reviews for this movie.</p>;
+  if (error) return <p>Error loading reviews.</p>;
+  if (!reviews || reviews.length === 0) return <p>We don't have any reviews for this movie.</p>;
 
   return (
     <ul className={css.list}>
       {reviews.map((review) => (
         <li key={review.id} className={css.item}>
-          <h4 className={css.author}>Author: {review.author}</h4>
+          <h3 className={css.author}>Author: {review.author}</h3>
           <p className={css.content}>{review.content}</p>
         </li>
       ))}
