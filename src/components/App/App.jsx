@@ -16,7 +16,7 @@ export default function App() {
     <div className={css.container}>
       <Navigation />
       
-      <Suspense fallback={<div className={css.loader}>Yükleniyor...</div>}>
+      <Suspense fallback={<div className={css.loader}>Loading...</div>}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
