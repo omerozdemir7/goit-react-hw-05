@@ -1,10 +1,12 @@
 import axios from "axios";
 
+
+const API_TOKEN = "362ee522f1af2dedac989b8df9cfb4eb";
+
 const api = axios.create({
   baseURL: "https://api.themoviedb.org/3",
   params: {
-    // Vite projelerinde env değişkenlerine import.meta.env ile erişilir
-    api_key: import.meta.env.VITE_API_KEY, 
+    api_key: API_TOKEN,
   },
 });
 
