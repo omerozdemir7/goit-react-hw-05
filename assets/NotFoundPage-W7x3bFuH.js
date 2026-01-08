@@ -1,0 +1,2 @@
+import{j as n,L as e}from"./index-GCc2LfQV.js";const t="_container_mqt7x_1",s="_link_mqt7x_6",o={container:t,link:s};function r(){return n.jsxs("div",{className:o.container,children:[n.jsx("h1",{children:"404 - Page Not Found"}),n.jsx("p",{children:"Sorry, the page you are looking for does not exist."}),n.jsx(e,{to:"/",className:o.link,children:"Go Home"})]})}export{r as default};
+//# sourceMappingURL=NotFoundPage-W7x3bFuH.js.map
