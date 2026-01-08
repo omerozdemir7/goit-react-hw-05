@@ -1,12 +1,10 @@
 import axios from "axios";
 
-// BURAYA KENDİ "API Read Access Token" DEĞERİNİ YAPIŞTIR
-const API_TOKEN = "362ee522f1af2dedac989b8df9cfb4eb";
-
 const api = axios.create({
   baseURL: "https://api.themoviedb.org/3",
   params: {
-    api_key: API_TOKEN,
+    // Vite projelerinde env değişkenlerine import.meta.env ile erişilir
+    api_key: import.meta.env.VITE_API_KEY, 
   },
 });
 
@@ -16,7 +14,9 @@ export const getTrendingMovies = async () => {
 };
 
 export const searchMovies = async (query) => {
-  const { data } = await api.get(`/search/movie?query=${query}`);
+  const { data } = await api.get(`/search/movie`, {
+    params: { query },
+  });
   return data.results;
 };
 
@@ -35,7 +35,6 @@ export const getMovieReviews = async (movieId) => {
   return data.results;
 };
 
-// Resim URL yardımcısı
 export const getImageUrl = (path) => {
   return path
     ? `https://image.tmdb.org/t/p/w500/${path}`

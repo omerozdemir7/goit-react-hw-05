@@ -4,12 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://omerozdemir7.github.io/goit-react-hw-05/",
-  "scripts": {
+"scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "predeploy": "vite build --base=/goit-react-hw-05/", 
     "deploy": "gh-pages -d dist",
     "update": "git add . && git commit -m \"update\" && git push"
   },
